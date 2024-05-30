@@ -1,9 +1,9 @@
-name: Deploy to Vercel
+ame: Deploy PHP to Vercel
 
 on:
   push:
     branches:
-      - main  # Puedes cambiar 'main' por el nombre de tu rama principal
+      - main
 
 jobs:
   deploy:
@@ -13,8 +13,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Vercel CLI
-        run: npm install -g vercel
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+
+      - name: Install dependencies
+        run: |
+          composer install
 
       - name: Deploy to Vercel
-        run: vercel --token ${{ secrets.VERCEL_TOKEN }} --prod
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npm install -g vercel
