@@ -1,4 +1,4 @@
-name: Main to Vercel
+name: main to Vercel
 
 on:
   push:
@@ -16,5 +16,5 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Main to Vercel
+      - name: main to Vercel
         run: vercel --token ${{ secrets.VERCEL_TOKEN }} --prod
