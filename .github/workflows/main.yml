@@ -1,4 +1,4 @@
-name: main to Vercel
+name: Main to Vercel
 
 on:
   push:
