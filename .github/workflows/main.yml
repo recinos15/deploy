@@ -1,4 +1,4 @@
-ame: Deploy PHP to Vercel
+name: Deploy PHP to Vercel
 
 on:
   push:
